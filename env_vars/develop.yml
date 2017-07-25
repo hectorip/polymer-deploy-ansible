@@ -1,0 +1,12 @@
+---
+
+# Host
+app_hostname: example.com
+app_local_dir: absolute_or_relative_path_to_your_project
+# Git settings.
+# setup_git_repo: yes
+git_branch: develop
+
+# certbot
+lets_encrypt_admin_email: admin_email_to_use with let's encrypt's certbot
+

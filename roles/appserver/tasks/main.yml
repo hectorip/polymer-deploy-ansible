@@ -1,0 +1,23 @@
+---
+
+- name: Installing HTTP vhost config
+  template: src=http.conf dest=/etc/nginx/sites-enabled/{{ app_name }}.conf
+
+
+- name: Installing HTTPS vhost config
+  template: src=https.conf dest=/etc/nginx/sites-enabled/{{ app_name }}-https.conf
+
+- name: Reload NGINX
+  service: name=nginx state=restarted
+  when: nginx_status.stat.exists
+
+- name: Create apps directory
+  file: path=/apps state=directory
+
+- name: Create this app directory
+  file: path=/apps/{{ app_name }} state=directory
+
+- name: Sync directory into server
+  synchronize:
+    src: "{{ app_local_dir }}/build/default/"
+    dest: /apps/{{ app_name }}

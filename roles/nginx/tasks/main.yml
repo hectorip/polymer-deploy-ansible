@@ -1,0 +1,11 @@
+---
+
+- name: Install Nginx
+  apt: name=nginx update_cache={{ update_apt_cache }} state=installed
+  tags: packages
+
+- name: Ensure that a strong Diffie-Hellman group is used
+  command: openssl dhparam -out /etc/ssl/certs/dhparams.pem 2048 creates=/etc/ssl/certs/dhparams.pem
+
+- name: Ensure Nginx service is started
+  service: name=nginx state=started enabled=yes

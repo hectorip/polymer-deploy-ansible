@@ -1,0 +1,5 @@
+[all:vars]
+env=develop
+
+[webservers]
+your_web_server_ip
