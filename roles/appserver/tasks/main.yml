@@ -3,7 +3,6 @@
 - name: Installing HTTP vhost config
   template: src=http.conf dest=/etc/nginx/sites-enabled/{{ app_name }}.conf
 
-
 - name: Installing HTTPS vhost config
   template: src=https.conf dest=/etc/nginx/sites-enabled/{{ app_name }}-https.conf
 
