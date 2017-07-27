@@ -20,3 +20,4 @@
   synchronize:
     src: "{{ app_local_dir }}/build/default/"
     dest: /apps/{{ app_name }}
+  tags: deployment
